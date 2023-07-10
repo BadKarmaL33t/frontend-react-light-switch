@@ -1,15 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 
 function App() {
-  return (
-    <main className="off">
-      <section>
-        <div className="dot"></div>
-        <button type="button">Turn on/off</button>
-      </section>
-    </main>
-  );
+    const [lightSwitch, setLightSwitch] = useState(false);
+
+    return (
+        <main className={lightSwitch === true ? "on" : "off" }>
+            <section>
+                <div className="dot"></div>
+                <button type="button" onClick={() => setLightSwitch(!lightSwitch)}>
+                    {lightSwitch === true ? "Turn off" : "Turn on" }</button>
+            </section>
+        </main>
+    );
 }
 
 export default App;
